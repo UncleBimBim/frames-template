@@ -10,17 +10,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse('Message not valid', { status: 500 });
   }
 
-  const text = message.input || '';
   let state = {
     page: 0,
   };
-  try {
-    state = JSON.parse(decodeURIComponent(message.state?.serialized));
-  } catch (e) {
-    console.error(e);
-  }
+  
+  let text = '';
 
-    if (message?.input) {
+  if (message?.input) {
     text = message.input;
   }
 

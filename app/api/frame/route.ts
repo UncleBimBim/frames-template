@@ -32,7 +32,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
    */
   if (message?.button === 3) {
     return NextResponse.redirect(
-      'https://www.buck5.co',
+      'http://www.buck5.co',
       { status: 302 },
     );
   }

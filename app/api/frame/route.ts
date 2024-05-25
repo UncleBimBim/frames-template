@@ -6,8 +6,22 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
 
-  let text = '';
+  if (!isValid) {
+    return new NextResponse('Message not valid', { status: 500 });
+  }
+
+  const text = message.input || '';
+  let state = {
+    page: 0,
+  };
+  try {
+    state = JSON.parse(decodeURIComponent(message.state?.serialized));
+  } catch (e) {
+    console.error(e);
+  }
   
+  let text = '';
+
   if (message?.input) {
     text = message.input;
   }

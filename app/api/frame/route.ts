@@ -32,7 +32,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
    */
   if (message?.button === 3) {
     return NextResponse.redirect(
-      'https://www.google.com/search?q=cute+dog+pictures&tbm=isch&source=lnms',
+      'https://buck5.co',
       { status: 302 },
     );
   }
@@ -50,7 +50,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         },
         {
           action: 'post_redirect',
-          label: 'Dog pictures',
+          label: 'Head to BUCK$',
         },
       ],
       image: {

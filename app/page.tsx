@@ -13,9 +13,9 @@ const frameMetadata = getFrameMetadata({
       target: 'https://onchainkit.xyz',
     },
     {
-      action: 'post_redirect',
       label: 'Head to BUCK$',
-    },
+      action: 'post_redirect',
+          },
   ],
   image: {
     src: `${NEXT_PUBLIC_URL}/park-3.png`,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>zizzamia.xyz</h1>
+      <h1>UncleBimBim</h1>
     </>
   );
 }

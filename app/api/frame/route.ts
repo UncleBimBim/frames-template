@@ -30,7 +30,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   /**
    * Use this code to redirect to a different page
    */
-  if (message?.button === 4) {
+  if (message?.button === 3) {
     return NextResponse.redirect(
       'https://www.buck5.co',
       { status: 302 },

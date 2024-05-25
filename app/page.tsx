@@ -8,10 +8,13 @@ const frameMetadata = getFrameMetadata({
       label: 'Story time',
     },
     {
-      action: 'tx',
-      label: 'Send Base Sepolia',
-      target: `${NEXT_PUBLIC_URL}/api/tx`,
-      postUrl: `${NEXT_PUBLIC_URL}/api/tx-success`,
+      action: 'link',
+      label: 'OnchainKit',
+      target: 'https://onchainkit.xyz',
+    },
+    {
+      action: 'post_redirect',
+      label: 'Head to BUCK$',
     },
   ],
   image: {

@@ -25,14 +25,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     text = message.input;
   }
 
-  console.log('Text:', text); // Debug log
-
   /**
    * Use this code to redirect to a different page
    */
   if (message?.button === 3) {
     return NextResponse.redirect(
-      'http://www.buck5.co',
+      'https://www.google.com',
       { status: 302 },
     );
   }

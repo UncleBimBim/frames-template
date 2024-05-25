@@ -13,6 +13,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   let state = {
     page: 0,
   };
+  try {
+    state = JSON.parse(decodeURIComponent(message.state?.serialized));
+  } catch (e) {
+    console.error(e);
+  }
   
   let text = '';
 

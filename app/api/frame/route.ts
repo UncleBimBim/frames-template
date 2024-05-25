@@ -19,10 +19,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   } catch (e) {
     console.error(e);
   }
-  
-  let text = '';
 
-  if (message?.input) {
+    if (message?.input) {
     text = message.input;
   }
 

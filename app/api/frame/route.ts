@@ -6,7 +6,12 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
 
+  // Log the incoming request and message
+  console.log('Received body:', body);
+  console.log('Parsed message:', message);
+
   if (!isValid) {
+    console.error('Message not valid');
     return new NextResponse('Message not valid', { status: 500 });
   }
 
@@ -16,23 +21,21 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   try {
     state = JSON.parse(decodeURIComponent(message.state?.serialized));
   } catch (e) {
-    console.error(e);
+    console.error('Error parsing state:', e);
   }
-  
+
   let text = '';
 
   if (message?.input) {
     text = message.input;
   }
 
-  /**
-   * Use this code to redirect to a different page
-   */
+  // Log button index check
+  console.log('Button index:', message?.button);
+
   if (message?.button === 2) {
-    return NextResponse.redirect(
-      'https://www.google.com',
-      { status: 302 },
-    );
+    console.log('Redirecting to Google');
+    return NextResponse.redirect('https://www.google.com', { status: 302 });
   }
 
   return new NextResponse(

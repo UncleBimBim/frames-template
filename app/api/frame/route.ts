@@ -28,7 +28,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   /**
    * Use this code to redirect to a different page
    */
-  if (message?.button === 3) {
+  if (message?.button === 2) {
     return NextResponse.redirect(
       'https://www.google.com',
       { status: 302 },

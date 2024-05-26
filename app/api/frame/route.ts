@@ -35,7 +35,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   if (message?.button === 3) {  // Use the correct button index
     console.log('Redirecting to Google');
-    return NextResponse.redirect('https://www.google.com', { status: 302 });
+    return NextResponse.redirect('https://buck5.co', { status: 302 });
   }
 
   return new NextResponse(

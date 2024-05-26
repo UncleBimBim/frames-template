@@ -1,7 +1,3 @@
-import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
-import { NextRequest, NextResponse } from 'next/server';
-import { NEXT_PUBLIC_URL } from '../../config';
-
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
@@ -33,7 +29,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   // Log button index check
   console.log('Button index:', message?.button);
 
-  if (message?.button === 2) {
+  if (message?.button === 3) {  // Use the correct button index
     console.log('Redirecting to Google');
     return NextResponse.redirect('https://www.google.com', { status: 302 });
   }
@@ -56,9 +52,3 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     }),
   );
 }
-
-export async function POST(req: NextRequest): Promise<Response> {
-  return getResponse(req);
-}
-
-export const dynamic = 'force-dynamic';

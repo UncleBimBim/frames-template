@@ -1,3 +1,7 @@
+import { NextRequest, NextResponse } from 'next/server';  // Add this import statement
+import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
+import { NEXT_PUBLIC_URL } from '../../config';
+
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
@@ -52,3 +56,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     }),
   );
 }
+
+export async function POST(req: NextRequest): Promise<NextResponse> {
+  return getResponse(req);
+}
+
+export const dynamic = 'force-dynamic';
